@@ -9,7 +9,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       version: ${{ steps.get_version.outputs.version }}
 
@@ -85,7 +85,7 @@ jobs:
 
   build_tar:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -125,7 +125,7 @@ jobs:
 
   build_appimage:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -166,7 +166,7 @@ jobs:
 
   build_deb:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -255,7 +255,7 @@ jobs:
 
   release:
     needs: [build, build_apk, build_tar, build_deb, build_windows_zip, build_appimage]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
